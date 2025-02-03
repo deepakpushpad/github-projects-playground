@@ -1,6 +1,6 @@
 import random 
 print("Hi welcome to the game, This is a number guessing game.\nYou got 7 chances to guess the number. Let's start the game")
-number_to_Guess=random.randrange(100)
+number_to_Guess=random.randrange(-30,100)
 
 Chances =7
 Guess_Counter=0
