@@ -1,0 +1,42 @@
+def is_num_palindrome(num):
+    """Check if a number or string is a palindrome."""
+    
+    # Handle None (null) input
+    if num is None:
+        return False  
+
+    # Check if input is of allowed types (int, float, str)
+    if not isinstance(num, (int, float, str)):
+        raise ValueError("Input should be an integer, float, or a string")
+
+    # Convert the number to a string
+    num_str = str(num)
+
+    # Negative numbers are NOT palindromes
+    if num_str.startswith('-'):
+        return False
+
+    # Remove decimal points (for float numbers)
+    num_str = num_str.replace('.', '')
+
+    # Remove spaces and convert to lowercase (for string inputs)
+    num_str = num_str.lower().replace(" ", "")
+
+    # Check if it's a palindrome
+    return num_str == num_str[::-1]
+
+
+# ✅ Test Cases for Boundary Conditions
+print(is_num_palindrome(121))       # True
+print(is_num_palindrome(-121))      # False
+print(is_num_palindrome(45.54))     # True
+print(is_num_palindrome(12.21))     # True
+print(is_num_palindrome(12.34))     # False
+print(is_num_palindrome("abccba"))  # True
+print(is_num_palindrome("Race car"))  # True
+print(is_num_palindrome("A man a plan a canal Panama"))  # True
+print(is_num_palindrome(""))        # True (empty string is a palindrome)
+print(is_num_palindrome(None))      # False
+print(is_num_palindrome(123456789987654321))  # True
+print(is_num_palindrome([1, 2, 1]))  # ValueError
+
